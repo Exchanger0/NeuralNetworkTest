@@ -20,7 +20,7 @@ y_test = k.utils.to_categorical(y_test, 10)
 model = k.Sequential([
     k.layers.Input(shape=(28, 28, 1)),
     k.layers.Flatten(input_shape=(28, 28, 1)),
-    k.layers.Dense(128, activation="relu"),
+    k.layers.Dense(128, activation="sigmoid"),
     k.layers.Dense(10, activation="softmax")
 ])
 model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
@@ -29,9 +29,10 @@ model.fit(x_train, y_train, batch_size=32, epochs=10)
 print("Обучение нейронной сети закончилось")
 
 print("q для выхода")
-path = input("Введите путь до изображения цифры(28х28):")
+path = input("Введите путь до изображения цифры:")
 while path != "q":
     img = Image.open(path).convert("L")
+    img = img.resize((28, 28))
     img_array = np.array(img)
     img_array = img_array / 255
     img_array = np.expand_dims(img_array, axis=0)
@@ -39,4 +40,4 @@ while path != "q":
     img_array = 1 - img_array
     res = model.predict(img_array)
     print("Ответ нейросети:", np.argmax(res))
-    path = input("Введите путь до изображения цифры(28х28):")
+    path = input("Введите путь до изображения цифры:")
