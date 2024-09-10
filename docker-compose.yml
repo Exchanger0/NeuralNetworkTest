@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  first_service:
+    container_name: nn1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python ./nn1.py
+
+  second_service:
+    container_name: nn2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python ./nn2.py
