@@ -1,9 +1,9 @@
 # NeutralNetworkTest
 <p>descirption</p>
 
-<h1>Запуск</h1>
 
-<h3>Docker</h3>
+<h2>Docker</h2>
+<p>* Временно: пока что второй контейнер не работает</p>
 
 ```
   Docker build -t {{name_image}} .
