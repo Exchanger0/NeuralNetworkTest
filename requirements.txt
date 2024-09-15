@@ -2,3 +2,5 @@ numpy
 tensorflow
 pillow
 scipy
+keras
+idx2numpy
