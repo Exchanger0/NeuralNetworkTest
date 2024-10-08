@@ -14,3 +14,10 @@ services:
       context: .
       dockerfile: Dockerfile
     command: python ./nn2.py
+
+  third_serivce:
+    container_name: nn3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python ./nn3.py
